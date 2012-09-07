@@ -1,0 +1,116 @@
+set rtp =~/.vim2,/usr/share/vim/vimfiles,/usr/share/vim/vim73,/usr/share/vim/vimfiles/after,~/.vim2/after
+"""use pathogen insted of vundle
+
+if match($TERM, "screen")!=-1
+  set term=xterm
+endif
+" Screen-ify an external command.
+function InScreen(command)
+  return g:GNU_Screen_used ? 'screen '.a:command : a:command
+endfunction
+
+""" Basic Setting(s)
+let mapleader = ","
+set mouse=nv
+set ffs=unix,mac,dos
+set number
+set showmode
+set nocompatible
+set cursorline
+set wildmenu
+set wildmode=list:longest,full
+set cursorcolumn 
+"set splitright
+"set splitbelow
+hi CursorLine cterm=none ctermbg=200 ctermfg=none guibg=darkred guifg=white 
+hi CursorColumn cterm=none ctermbg=200 ctermfg=none guibg=darkred guifg=white
+filetype on
+filetype plugin indent on
+syntax on
+"turn on omnicomplete
+set ofu=syntaxcomplete#Complete
+
+"""Basic Mapping Settings(s)
+inoremap jj  <ESC>
+inoremap {<CR> {<CR><END><CR>}<UP><END>
+inoremap = <Space>=<Space>
+inoremap == <Space>==<Space>
+inoremap != <Space>!=<Space>
+inoremap <= <Space><=<Space>
+inoremap >= <Space>>=<Space>
+inoremap ( ()<Left>
+"""press S to replace the current word with the last yanked text
+nnoremap S diw"0P
+vnoremap S "_d"0P
+"""indention
+vnoremap > >gv
+vnoremap < <gv
+nnoremap <Tab> >>_
+nnoremap <S-Tab> <<_
+inoremap <S-Tab> <C-D>
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+vnoremap <Tab> >
+vnoremap <S-Tab> <
+vnoremap <Tab> >gV
+vnoremap <S-Tab> <gV
+nnoremap gg=G gg=G<C-O><C-O>
+
+
+" remember last cursor position
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+" " automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt=menuone,menu,longest,preview
+highlight Pmenu ctermbg = 238 gui = bold
+
+""" Encoding Setting(s)
+set encoding=utf8
+set fileencoding=utf8
+set fileencodings=utf-8,big5,euc-jp,gbk,euc-kr,utf-bom,iso8859-1
+set termencoding=utf-8
+
+""" Color Scheme Setting(s)
+colorscheme wombat256
+
+""" Backup Setting(s)
+"set backup
+"set backupdir=$HOME/.vim/backup
+set nobackup
+
+""" Indent Setting(s)
+set autoindent
+set smartindent
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+"autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
+
+""" tagbar settings
+nnoremap <silent> <F9> :TagbarToggle<CR>
+
+""" Folding Setting(s)
+set foldenable
+set foldmethod=manual
+set foldcolumn=2
+"nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+
+""" Search Setting(s)
+set showcmd
+set incsearch
+set showmatch
+"set hlsearch
+map <F8> :set hls! < Bar> set hls?<CR>
+""" Status Bar Setting(s)
+set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
+set laststatus=2 
+let g:Powerline_symbols = 'fancy'
+" Make sure Vim returns to the same line when you reopen a file.
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
