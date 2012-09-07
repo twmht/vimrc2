@@ -114,3 +114,6 @@ augroup line_return
         \     execute 'normal! g`"zvzz' |
         \ endif
 augroup END
+
+source ~/.vim_plugin2/eclim.vim
+source ~/.vim_plugin2/supertab.vim
