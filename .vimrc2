@@ -1,5 +1,10 @@
-set rtp =~/.vim2,/usr/share/vim/vimfiles,/usr/share/vim/vim73,/usr/share/vim/vimfiles/after,~/.vim2/after
+set rtp=~/.vim2,/usr/share/vim/vimfiles,/usr/share/vim/vim73,/usr/share/vim/vimfiles/after,~/.vim2/after
 """use pathogen insted of vundle
+"runtime! autoload/pathogen.vim
+"source ~/.vim2/autoload/pathogen.vim
+"call pathogen#infect()
+"syntax on
+"filetype plugin indent on
 
 if match($TERM, "screen")!=-1
   set term=xterm
@@ -88,7 +93,7 @@ set softtabstop=4
 "autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
 
 """ tagbar settings
-nnoremap <silent> <F9> :TagbarToggle<CR>
+"nnoremap <silent> <F9> :TagbarToggle<CR>
 
 """ Folding Setting(s)
 set foldenable
@@ -117,3 +122,5 @@ augroup END
 
 source ~/.vim_plugin2/eclim.vim
 source ~/.vim_plugin2/supertab.vim
+source ~/.vim_plugin2/autocomplpop.vim
+source ~/.vim_plugin2/FuzzyFinder.vim
