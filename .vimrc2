@@ -1,10 +1,30 @@
+set nocompatible
+filetype off
 set rtp=~/.vim2,/usr/share/vim/vimfiles,/usr/share/vim/vim73,/usr/share/vim/vimfiles/after,~/.vim2/after
-"""use pathogen insted of vundle
-"runtime! autoload/pathogen.vim
-"source ~/.vim2/autoload/pathogen.vim
-"call pathogen#infect()
-"syntax on
-"filetype plugin indent on
+set rtp+=~/.vim2/bundle/vundle/
+call vundle#rc()
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+Bundle 'mivok/vimtodo'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-surround'
+" vim-scripts repos
+"Bundle 'sessionman.vim'
+"(command line): vim sudo:/etc/passwd
+"(within vim):   :e sudo:/etc/passwd
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'indent-motion'
+Bundle 'TabBar'
+"eclim plugin
+Bundle 'eclim'
+Bundle 'AutoComplPop' 
+Bundle 'ervandew/supertab'
+"Bundle 'Visual-Mark'
 
 if match($TERM, "screen")!=-1
   set term=xterm
