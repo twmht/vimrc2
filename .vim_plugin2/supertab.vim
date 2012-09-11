@@ -1,3 +1,4 @@
+let g:snips_trigger_key='<F2>'
 let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 "let g:SuperTabDefaultCompletionType = "context"
 " Supertab settings

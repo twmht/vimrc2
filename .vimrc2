@@ -13,7 +13,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-surround'
 " vim-scripts repos
-"Bundle 'sessionman.vim'
+Bundle 'sessionman.vim'
 "(command line): vim sudo:/etc/passwd
 "(within vim):   :e sudo:/etc/passwd
 Bundle 'L9'
@@ -25,6 +25,11 @@ Bundle 'eclim'
 Bundle 'AutoComplPop' 
 Bundle 'ervandew/supertab'
 "Bundle 'Visual-Mark'
+"vim-snipmate dependency
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/snipmate-snippets"
+Bundle 'garbas/vim-snipmate'
 
 if match($TERM, "screen")!=-1
   set term=xterm
@@ -140,6 +145,7 @@ augroup line_return
         \ endif
 augroup END
 
+source ~/.vim_plugin2/snipmate.vim
 source ~/.vim_plugin2/eclim.vim
 source ~/.vim_plugin2/supertab.vim
 source ~/.vim_plugin2/autocomplpop.vim
