@@ -21,7 +21,7 @@ Bundle 'FuzzyFinder'
 Bundle 'indent-motion'
 Bundle 'TabBar'
 "eclim plugin
-Bundle 'eclim'
+"Bundle 'eclim'
 Bundle 'AutoComplPop' 
 Bundle 'ervandew/supertab'
 "Bundle 'Visual-Mark'
